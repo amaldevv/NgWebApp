@@ -21,9 +21,18 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/styles.css"
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/style.css",
+              "src/assets/css/themify-icons.css",
+              "src/assets/css/dosis-font.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/jquery.easing.min.js",
+              "src/assets/js/scrolling-nav.js",
+              "src/assets/js/validator.js"
+            ],
             "aot": true
           },
           "configurations": {
