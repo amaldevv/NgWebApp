@@ -9,6 +9,7 @@ import 'rxjs/add/operator/do';
 import { Observable } from "rxjs/Observable";
 
 import { Speaker } from "app/shared/model/speaker";
+import { Schedule } from "app/shared/model/schedule";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
 
@@ -20,7 +21,7 @@ import { UtilitiesService } from './utilities.service';
 export class SpeakerService {
   
   baseUrl = this.utilitiesService.getApiUrl();
-  endpoint = this.baseUrl + '/api/GetSpeakers';
+  endpoint = this.baseUrl ;
   constructor(private httpClient: HttpClient, private utilitiesService: UtilitiesService) { 
     
 
@@ -31,7 +32,17 @@ export class SpeakerService {
 
   GetSpeakers(): Observable<any> {
 
-    return this.httpClient.get<Speaker>(this.endpoint)
+    return this.httpClient.get<Speaker>(this.endpoint+ '/api/GetSpeakers')
+    //.map(response => response.json())
+    //.map(response => response.map(this.formatEmployee))
+    .do(response => console.log(response))
+    .catch(this.handleError);
+
+  }
+
+  GetSchedule(day): Observable<any> {
+
+    return this.httpClient.post<Schedule>(this.endpoint+ '/api/GetSchedule', day)
     //.map(response => response.json())
     //.map(response => response.map(this.formatEmployee))
     .do(response => console.log(response))
