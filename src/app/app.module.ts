@@ -9,6 +9,8 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { SpeakerComponent } from './components/speaker/speaker.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
     HeaderComponent,
     FooterComponent,
     SpeakerComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [
     { provide: Window, useValue: window }
